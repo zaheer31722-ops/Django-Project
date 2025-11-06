@@ -1,0 +1,9 @@
+<h1>Many to Many Relationship</h1>
+<p>Student Name: {{student.name}}</p>
+<ul>
+    {% for course in courses %}
+    <li>{{ course.name }}</li>
+    {%empty%}
+    <li>No courses enrolled!</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>My Website Header</h1>
+        <a href="/">Home</a> | <a href="/about/">About</a>
+        <img src="{% static 'myapp/django.png' %}" alt="">
+    </header>
+
+    <main>
+        {% block content %}
+        <p>Welcome to my site!</p>
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MySite</p>
+    </footer>
+    <script src="{% static 'myapp/script.js' %}"></script>
+</body>
+</html>

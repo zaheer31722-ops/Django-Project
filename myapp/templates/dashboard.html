@@ -1,0 +1,32 @@
+<h2>Welcome, {{ user.username }} </h2>
+
+<p>{% if perms.myapp.add_blogpermissionpost %}
+    <a href="{% url 'add_blog' %}">Add Blog Post</a> |
+    {% endif %}
+    <a href="{% url 'view_posts' %}">View All Blog Posts</a> |
+
+    <a href="{% url 'logout' %}">Logout</a> |
+    <a href="{% url 'password_change' %}">Change Password</a>
+
+</p>
+
+<hr>
+
+<h3>Your Posts: </h3>
+<ul>
+    {% for post in user.blogpermissionpost_set.all %}
+    <li>
+        <strong>{{ post.title }}</strong> <br>
+        {{post.content}} <br>
+        {% if perms.myapp.change_blogpermissionpost %}
+         <a href="{% url 'edit_blog' post.id %}">Edit</a> |
+         {% endif %}
+         {% if perms.myapp.delete_blogpermissionpost %}
+         <a href="{% url 'delete_blog' post.id %}">Delete</a>
+         {% endif %}
+    </li>
+    <hr>
+    {% empty %}
+    <li>You haven't added any blog posts yet.</li>
+    {% endfor %}
+</ul>

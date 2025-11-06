@@ -1,0 +1,9 @@
+<h1>One to Many Relationship</h1>
+<p>Blog Title: {{blog.title}}</p>
+<ul>
+    {% for comment in comments %}
+    <li>{{ comment.text }}</li>
+    {% empty %}
+    <li>No comments yet!</li>
+    {% endfor %}
+</ul>

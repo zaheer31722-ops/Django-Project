@@ -1,0 +1,14 @@
+<h2>Aggregation</h2>
+
+<p>Average Price: {{ avg_price.price__avg }}</p>
+<p>Total Books: {{ total_books.id__count }}</p>
+<p>Maximum Price: {{ max_price.price__max }}</p>
+
+<h2>Annotated Books</h2>
+<ul>
+    {% for book in annotated_books %}
+    <li>
+        {{ book.title }} - Original: {{ book.price }} - Discounted: {{ book.discounted_price }}
+    </li>
+    {% endfor %}
+</ul>

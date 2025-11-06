@@ -1,0 +1,9 @@
+<h2>Custom Manager Demo</h2>
+
+<ul>
+    {% for book in books %}
+    <li>
+        {{ book.title }} - {{ book.price }}
+    </li>
+    {% endfor %}
+</ul>
